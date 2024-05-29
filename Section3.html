@@ -9,8 +9,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #a8e063, #56ab2f); /* Green to blue gradient */
-            color: #333; /* Default text color */
+            background: linear-gradient(120deg, #a8e063, #56ab2f);
+            color: #333;
         }
 
         header {
@@ -47,15 +47,15 @@
         }
 
         h2 {
-            font-size: 2.5rem; /* Larger heading size */
-            color: #fff; /* White text color for contrast */
+            font-size: 2.5rem;
+            color: #fff;
             text-align: center;
         }
 
         p {
-            font-size: 1.2rem; /* Larger paragraph text size */
-            line-height: 1.6; /* Increased line height for readability */
-            color: #fff; /* White text color for contrast */
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
         }
 
         .content-block {
@@ -75,8 +75,8 @@
 
         .image img {
             max-width: 100%;
-            border-radius: 10px; /* Rounded corners for images */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -101,103 +101,135 @@
                 flex-direction: column;
             }
         }
+
         .button-container {
-    text-align: center;
-}
+            text-align: center;
+        }
 
-.button {
-    background: linear-gradient(#63d471, #388e3c); /* Light to dark green gradient */
-    border: none;
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s;
-}
+        .button {
+            background: linear-gradient(#63d471, #388e3c);
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
 
-.button:hover {
-    background: linear-gradient(#388e3c, #1b5e20); /* Darker to darker green gradient on hover */
-}
+        .button:hover {
+            background: linear-gradient(#388e3c, #1b5e20);
+        }
 
+        .button:hover {
+            background-color: #45a049;
+        }
 
-.button:hover {
-    background-color: #45a049; /* Darker Green */
-}
-body {
-    background: linear-gradient(#a8e063, #56ab2f); /* Green gradient */
-    background-size: 400% 400%; /* Increase the size of the background */
-    animation: gradientAnimation 10s infinite; /* Adjust the animation duration */
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    color: #333; /* Default text color */
-}
+        body {
+            background: linear-gradient(#a8e063, #56ab2f);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
 
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; } /* Starting point */
-    50% { background-position: 100% 50%; } /* Midpoint */
-    100% { background-position: 0% 50%; } /* Endpoint */
-}
-        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px; /* Remove this if you don't want the 3D effect */
-}
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+        }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
 
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
 
-/* Style the front side (fallback if image is missing) */
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-}
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
 
-/* Style the back side */
-.flip-card-back {
-  background-color: dodgerblue;
-  color: white;
-  transform: rotateY(180deg);
-}
-.airplane{
-    
-}
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
 
+        .flip-card-back {
+            background-color: dodgerblue;
+            color: white;
+            transform: rotateY(180deg);
+        }
 
+        .screen-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        #screen1 { background-color: rgba(0, 0, 0, 0.5); }
+        #screen2 { background-color: rgba(0, 0, 0, 0.7); transform: translateY(100%); }
+        #screen3 { background-color: rgba(0, 0, 0, 0.9); transform: translateY(200%); }
+        #screen4 { background-color: rgba(0, 0, 0, 0.6); transform: translateY(300%); }
+        #screen5 { background-color: rgba(0, 0, 0, 0.8); transform: translateY(400%); }
+
+        .arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #fff;
+            cursor: pointer;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bussiness Description</h1>
+        <h1>Business Description</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -214,108 +246,103 @@ body {
     <section class="section">
         <div class="content-block">
             <div class="text">
-                <h2> How we will get product to the user</h2>
-                <p> 
- </p>
+                <h2>How we will get the product to the user</h2>
+                <p></p>
+            </div>
+        </div>
+        <div class="content-block">
+            <div class="image">
+                <!-- Placeholder for the new image -->
+                <img src="Freight-Transportation-and-Distribution-Their-Difference-and-Their-Importance-2048x1024.webp" alt="Product Delivery Image">
+            </div>
+            <div class="text">
+                <p></p>
+            </div>
+        </div>
+        <div class="content-block">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/16/9f/c2/169fc22b-b2b5-5e5a-097a-c0bc3a5dbddc/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Shipping through carriers</h1>
+                        <p>Will be fast and efficient</p>
+                    </div>
+                </div>
             </div>
             <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/16/9f/c2/169fc22b-b2b5-5e5a-097a-c0bc3a5dbddc/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1>Shipping through carriers</h1>
-      <p> Will be fast and efficent</p>
-      <p></p>
-    </div>
-  </div>
-                <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="https://media.licdn.com/dms/image/D4D12AQErV5S_buj95w/article-cover_image-shrink_600_2000/0/1662363673907?e=2147483647&v=beta&t=FLqEHqQ_zKwj_8qH6Thrac6b2KhPN9yLjxHf0bOxw1A" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1> Website</h1>
-      <p>Will click on the product and will order</p>
-      <p> At first there will be a shipping fee</p>
-    </div>
-  </div>
-</div>
-</div>
-        </div>
-
-        <div class="content-block">
-            <div class="image">
-            
-    
-            </div>
-            <div class="text">
-                <p></p>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://media.licdn.com/dms/image/D4D12AQErV5S_buj95w/article-cover_image-shrink_600_2000/0/1662363673907?e=2147483647&v=beta&t=FLqEHqQ_zKwj_8qH6Thrac6b2KhPN9yLjxHf0bOxw1A" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Website</h1>
+                        <p>Will click on the product and will order</p>
+                        <p>At first there will be a shipping fee</p>
+                    </div>
+                </div>
             </div>
         </div>
         
         <div class="content-block">
-            <div class="image">
-            
-            </div>
-            <div class="text">
-                <p></p>
-            </div>
+            <div class="image"></div>
+            <div class="text"></div>
         </div>
+        
+        <div class="content-block">
+            <div class="image"></div>
             <div class="text">
-                <h2>Organizational Strucutre</h2>
+                <h2>Organizational Structure</h2>
                 <p>
-Part of our organizational strucure is having a solid sales team. This team will make sure to sell the products to these wholesalers and/or cusdtomers.  
-
- </p>
+                    Part of our organizational structure is having a solid sales team. This team will make sure to sell the products to these wholesalers and/or customers.
+                </p>
             </div>
-        <div class="image">
-            
-        </div>
-        </div>
-
-        <div class="content-block">
-            <div class="text">
-                <h2></h2>
-                <p></p>
-            </div>
-            <div class="image">
-            
-            </div>
-        </div>
-        
-        <div class="content-block">
-            <div class="text">
-                <p></p>
-            </div>
-            <div class="image">
-                
+            <div class="screen-container">
+                <div class="screen" id="screen1">
+                    <p> The main person will be the Sales Manager who will be in charge of everyone else</p>
+                </div>
+                <div class="screen" id="screen2">
+                    <p>             Government Sales Manager will make sure that we are not breaking any laws and the government is helping us, and we are in the best intrests of the government</p>
+                </div>
+                <div class="screen" id="screen3">
+                    <p>             The Advertising Sales Manager will be the one in charge of all te advertising and prootions such as ads.</p>
+                </div>
+                <div class="screen" id="screen4">
+                    <p>         Market Research Manager will make sure to find flaws in our competitors products, and if there is we will exploit through advertising.</p>
+                </div>
+                <div class="screen" id="screen5">
+                    <p>         The Personal Selling Manager will be the ones marketing directly through phone to make sure we have the best possible and most over arching reach to everyone</p>
+                </div>
+                <div class="arrow" id="arrow"></div>
             </div>
         </div>
-        
-        
-        <div class="content-block">
-            <div class="text">
-                <h2></h2>
-                <p></p>
-            </div>
-            <div class="image">
-                <img src="">
-            </div>
-        </div>
-        <div class="content-block">
-            <!-- Your content here -->
-        </div>
-        
         <div class="button-container">
-            <a href="Section3.html" class="button">Go to Market Analysis</a>
+            <a href="Section4.html" class="button">Sales and Marketing</a>
         </div>
-        
-        
     </section>
 
     <footer>
         &copy; 2024 Interactive Business Plan
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const arrow = document.getElementById('arrow');
+        const screens = document.querySelectorAll('.screen');
+        let currentScreen = 0;
+
+        arrow.addEventListener('click', () => {
+            if (currentScreen < screens.length - 1) {
+                currentScreen++;
+            } else {
+                currentScreen = 0;
+            }
+            screens.forEach((screen, index) => {
+                screen.style.transform = `translateY(${(index - currentScreen) * 100}%)`;
+            });
+        });
+    });
+    </script>
 </body>
 </html>
