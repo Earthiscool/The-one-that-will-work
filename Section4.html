@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Management - Interactive Business Plan</title>
+    <title>Management Description</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(120deg, #a8e063, #56ab2f);
+            color: #333;
         }
 
         header {
@@ -39,19 +40,120 @@
             color: #ff6347;
         }
 
-        main {
-            padding: 2rem;
-        }
-
-        section {
-            margin: 2rem 0;
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         h2 {
-            margin-top: 0;
+            font-size: 2.5rem;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tree {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+
+        .tree li {
+            float: left;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+
+        .tree li::before, .tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 2px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+
+        .tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 2px solid #ccc;
+        }
+
+        .tree li:only-child::after, .tree li:only-child::before {
+            display: none;
+        }
+
+        .tree li:only-child {
+            padding-top: 0;
+        }
+
+        .tree li:first-child::before, .tree li:last-child::after {
+            border: 0 none;
+        }
+
+        .tree li:last-child::before {
+            border-right: 2px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+
+        .tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+
+        .tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 2px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+
+        .tree li div {
+            border: 2px solid #ccc;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            display: inline-block;
+            border-radius: 5px;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .tree li div:hover, .tree li div.open {
+            background-color: #f0f0f0;
+            border: 2px solid #a8e063;
+        }
+
+        .description {
+            display: none;
+            margin-top: 1rem;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         footer {
@@ -63,30 +165,38 @@
             width: 100%;
             bottom: 0;
         }
+        .button-container {
+    text-align: center;
+}
 
-        object {
-            border: none;
-            width: 100%;
-            height: 600px;
-        }
+.button {
+    background: linear-gradient(#63d471, #388e3c); /* Light to dark green gradient */
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
 
-        @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                text-align: center;
-            }
-            footer {
-                position: static;
-            }
-            object {
-                height: 400px;
-            }
-        }
+.button:hover {
+    background: linear-gradient(#388e3c, #1b5e20); /* Darker to darker green gradient on hover */
+}
+
+
+.button:hover {
+    background-color: #45a049; /* Darker Green */
+}
     </style>
 </head>
 <body>
     <header>
-        <h1>Interactive Business Plan</h1>
+        <h1>Management Description</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -99,16 +209,106 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Management</h2>
-            <object data="docs/Section4_Management.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section4_Management.docx">click here to download the file.</a></p>
-            </object>
-        </section>
-    </main>
+
+    <section class="section">
+        <h2>5.0 – Management</h2>
+        <div class="tree">
+            <ul>
+                <li>
+                    <div onclick="toggleDescription(this)">CEO - Chief Executive Officer</div>
+                    <div class="description">
+                        This officer will be in charge of the whole company and the people below this person will all report to this individual. Additionally, this individual will be the face of the company, and any big deals will happen through consent and signature of the individual. Additionally, any major decisions will also happen through the CEO.
+                    </div>
+                    <ul>
+                        <li>
+                            <div onclick="toggleDescription(this)">CTO - Chief Technology Officer</div>
+                            <div class="description">
+                                This officer will be in charge of the IT department, making sure that our websites and supply chains are working functionally. The IT department will ensure the website works, our supply chain works, and any background requirements needed to function properly. Additionally, the IT department will work on making sure the sales team is working properly and does not need any technical assistance. Then, the IT department will send all reports to the CTO to have an accurate way to proceed with the company.
+                            </div>
+                        </li>
+                        <li>
+                            <div onclick="toggleDescription(this)">CMO - Chief Marketing Officer</div>
+                            <div class="description">
+                                The Chief Marketing Officer will be in charge of the sales team. The sales team will market the product and ensure multiple people know about our product. The sales teams will all play their respective roles and report to the CMO, so we know how to proceed with our sales.
+                            </div>
+                        </li>
+                        <li>
+                            <div onclick="toggleDescription(this)">CDO - Chief Data Officer</div>
+                            <div class="description">
+                                Our CDO will be in charge of all the data we collect on our customers. This is because our products will be specialized for the respective customer, so this individual will ensure their respective teams are accurately collecting data. They will also collaborate with the IT department to ensure that everything is flowing well.
+                            </div>
+                        </li>
+                        <li>
+                            <div onclick="toggleDescription(this)">President</div>
+                            <div class="description">
+                                The President will be the middleman for all the departments. All the information will be reported to him so that he can make a solid presentation and present it to the higher authorities.
+                            </div>
+                            <ul>
+                                <li>
+                                    <div onclick="toggleDescription(this)">Vice President</div>
+                                    <div class="description">
+                                        The Vice President will assist the President in performing his duties.
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h2>5.2 – Ownership</h2>
+        <div class="tree">
+            <ul>
+                <li>
+                    <div onclick="toggleDescription(this)">Ownership Structure</div>
+                    <div class="description">
+                        A short section on who owns and controls your company will help readers derive a better understanding of who will make decisions.<br>
+                        Our company is a partnership with Agastya as CEO and Simon as President.<br>
+                        Agastya owns 50%, Simon owns 30%, and the remaining 20% is up to the stock.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        
+    </section>
+    <section>
+            <div class="button-container">
+                <a href="Section5.html" class="button">Financials</a>
+            
+        </div>
     <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        &copy; 2024 Interactive Business Plan
     </footer>
+
+    <script>
+        function toggleDescription(element) {
+            // Get all description elements
+            var descriptions = document.querySelectorAll('.description');
+
+            // Close all descriptions except the one clicked
+            descriptions.forEach(function(description) {
+                if (description.previousElementSibling !== element) {
+                    description.style.display = 'none';
+                }
+            });
+
+            // Toggle the clicked description
+            var description = element.nextElementSibling;
+            if (description.style.display === 'block') {
+                description.style.display = 'none';
+            } else {
+                description.style.display = 'block';
+            }
+
+            // Ensure only the clicked element is open and apply 'open' class for styling
+            document.querySelectorAll('.tree li div').forEach(function(div) {
+                if (div !== element) {
+                    div.classList.remove('open');
+                }
+            });
+            element.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
