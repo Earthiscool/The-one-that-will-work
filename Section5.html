@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financials - Interactive Business Plan</title>
+    <title>Sales Marketing</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(120deg, #a8e063, #56ab2f);
+            color: #333;
         }
 
         header {
@@ -39,19 +40,43 @@
             color: #ff6347;
         }
 
-        main {
-            padding: 2rem;
-        }
-
-        section {
-            margin: 2rem 0;
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         h2 {
-            margin-top: 0;
+            font-size: 2.5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .content-block {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text, .image {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         footer {
@@ -64,29 +89,147 @@
             bottom: 0;
         }
 
-        object {
-            border: none;
-            width: 100%;
-            height: 600px;
-        }
-
         @media (max-width: 768px) {
             nav ul li {
                 display: block;
                 text-align: center;
             }
-            footer {
-                position: static;
+            .content-block {
+                flex-direction: column;
             }
-            object {
-                height: 400px;
+            .content-block:nth-child(even) {
+                flex-direction: column;
             }
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button {
+            background: linear-gradient(#63d471, #388e3c);
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background: linear-gradient(#388e3c, #1b5e20);
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        body {
+            background: linear-gradient(#a8e063, #56ab2f);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s infinite;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: dodgerblue;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .screen-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s ease;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        #screen1 { background-color: rgba(0, 0, 0, 0.5); }
+        #screen2 { background-color: rgba(0, 0, 0, 0.7); transform: translateY(100%); }
+        #screen3 { background-color: rgba(0, 0, 0, 0.9); transform: translateY(200%); }
+        #screen4 { background-color: rgba(0, 0, 0, 0.6); transform: translateY(300%); }
+        #screen5 { background-color: rgba(0, 0, 0, 0.8); transform: translateY(400%); }
+
+        .arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #fff;
+            cursor: pointer;
+            transform: translateX(-50%);
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Interactive Business Plan</h1>
+        <h1>Business Description</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -99,16 +242,34 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Financials</h2>
-            <object data="docs/Section5_Financials.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
-                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section5_Financials.docx">click here to download the file.</a></p>
-            </object>
-        </section>
-    </main>
+
+    <section class="section">
+        <div class="content-block">
+            <div class="text">
+                <h2>How we will get the product to the user</h2>
+                <p></p>
+            </div>
+        </div>
+        <div class="content-block">
+            
+            <div class="text">
+                <p></p>
+            </div>
+        </div>
+        
+        
+        
+        <div class="button-container">
+            <a href="Section6.html" class="button">About us</a>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        &copy; 2024 Interactive Business Plan
     </footer>
+
+    <script>
+
+    </script>
 </body>
 </html>
