@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Interactive Business Plan</title>
+    <title>About Us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f5f5f5;
+            color: #333;
         }
 
         header {
@@ -39,54 +40,53 @@
             color: #ff6347;
         }
 
-        main {
-            padding: 2rem;
-        }
-
-        section {
-            margin: 2rem 0;
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         h2 {
-            margin-top: 0;
+            font-size: 2.5rem;
+            color: #333;
         }
 
-        footer {
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .button {
+            background: linear-gradient(#63d471, #388e3c);
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background: linear-gradient(#388e3c, #1b5e20);
+        }
+
+        .footer {
             text-align: center;
             padding: 1rem 0;
             background-color: #333;
             color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        object {
-            border: none;
-            width: 100%;
-            height: 600px;
-        }
-
-        @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                text-align: center;
-            }
-            footer {
-                position: static;
-            }
-            object {
-                height: 400px;
-            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Interactive Business Plan</h1>
+        <h1>About Us</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -99,15 +99,35 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>This is the About Us section. Add your company's information, history, mission, vision, and any other relevant details here.</p>
-            <!-- You can embed a video or any other content here -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+
+    <section class="section">
+        <h2>Who We Are</h2>
+        <p>We are a team of passionate individuals dedicated to creating high-quality products that enhance people's lives.</p>
+    </section>
+
+    <section class="section">
+        <h2>Our Mission</h2>
+        <p>Our mission is to innovate and deliver products that exceed customer expectations and make a positive impact on society.</p>
+    </section>
+
+    <section class="section">
+        <h2>Why Choose Us</h2>
+        <p>We prioritize customer satisfaction, quality craftsmanship, and continuous improvement in everything we do.</p>
+    </section>
+
+    <section class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or inquiries, feel free to contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
+    </section>
+
+    <section class="section">
+        <h2>Buy Our Product</h2>
+        <p>Check out our latest product and experience the quality and innovation firsthand!</p>
+        <a href="product.html" class="button">Buy Now</a>
+    </section>
+
+    <footer class="footer">
+        &copy; 2024 Our Company. All rights reserved.
     </footer>
 </body>
 </html>
