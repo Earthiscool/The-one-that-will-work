@@ -59,24 +59,13 @@
         }
 
         .content-block {
-            display: flex;
-            align-items: center;
             margin-bottom: 4rem;
         }
 
-        .content-block:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .text, .image {
-            flex: 1;
-            padding: 1rem;
-        }
-
-        .image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
         }
 
         footer {
@@ -93,12 +82,6 @@
             nav ul li {
                 display: block;
                 text-align: center;
-            }
-            .content-block {
-                flex-direction: column;
-            }
-            .content-block:nth-child(even) {
-                flex-direction: column;
             }
         }
 
@@ -145,87 +128,36 @@
             100% { background-position: 0% 50%; }
         }
 
-        .flip-card {
-            background-color: transparent;
-            width: 300px;
-            height: 200px;
-            border: 1px solid #f1f1f1;
-            perspective: 1000px;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-        }
-
-        .flip-card-front {
-            background-color: #bbb;
-            color: black;
-        }
-
-        .flip-card-back {
-            background-color: dodgerblue;
-            color: white;
-            transform: rotateY(180deg);
-        }
-
-        .screen-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            border: 2px solid #fff;
-            border-radius: 10px;
-            margin-top: 2rem;
-        }
-
-        .screen {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .avatar {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            transition: transform 0.5s ease;
-            color: #fff;
-            font-size: 1.5rem;
         }
 
-        #screen1 { background-color: rgba(0, 0, 0, 0.5); }
-        #screen2 { background-color: rgba(0, 0, 0, 0.7); transform: translateY(100%); }
-        #screen3 { background-color: rgba(0, 0, 0, 0.9); transform: translateY(200%); }
-        #screen4 { background-color: rgba(0, 0, 0, 0.6); transform: translateY(300%); }
-        #screen5 { background-color: rgba(0, 0, 0, 0.8); transform: translateY(400%); }
+        .avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
 
-        .arrow {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid #fff;
-            cursor: pointer;
-            transform: translateX(-50%);
+        .speech-bubble {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -243,22 +175,89 @@
         </nav>
     </header>
 
+    <div class="avatar">
+        <img src="farmer.jpg" alt="Avatar">
+        <div class="speech-bubble hidden" id="speechBubble">Welcome to our financial section!</div>
+    </div>
+
     <section class="section">
-        <div class="content-block">
+        <!-- 6.1 Cost of Supplies -->
+        <div class="content-block" id="supplies">
             <div class="text">
-                <h2>How we will get the product to the user</h2>
-                <p></p>
+                <h2>6.1 Cost of Supplies</h2>
+                <div class="chart-container">
+                    <canvas id="suppliesChart"></canvas>
+                </div>
+                <audio id="audioSupplies" src="Meadowbrook Ln 5.m4a"></audio>
             </div>
         </div>
-        <div class="content-block">
-            
+
+        <!-- 6.2 Economics of One Unit -->
+        <div class="content-block" id="cogs">
             <div class="text">
-                <p></p>
+                <h2>6.2 Economics of One Unit</h2>
+                <div class="chart-container">
+                    <canvas id="cogsChart"></canvas>
+                </div>
+                <audio id="audioCogs" src="Meadowbrook Ln 6.m4a"></audio>
             </div>
         </div>
-        
-        
-        
+
+        <!-- 6.3 Monthly Sales Projections -->
+        <div class="content-block" id="sales">
+            <div class="text">
+                <h2>6.3 Monthly Sales Projections</h2>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <audio id="audioSales" src="Meadowbrook Ln 7.m4a"></audio>
+            </div>
+        </div>
+
+        <!-- 6.4 Average Monthly Operating Costs -->
+        <div class="content-block" id="costs">
+            <div class="text">
+                <h2>6.4 Average Monthly Operating Costs</h2>
+                <div class="chart-container">
+                    <canvas id="costsChart"></canvas>
+                </div>
+                <audio id="audioCosts" src="Meadowbrook Ln 8.m4a"></audio>
+            </div>
+        </div>
+
+        <!-- 6.5 Projected Monthly/Yearly Income Statement -->
+        <div class="content-block" id="monthlyIncome">
+            <div class="text">
+                <h2>6.5 Projected Monthly/Yearly Income Statement</h2>
+                <div class="chart-container">
+                    <canvas id="monthlyIncomeChart"></canvas>
+                </div>
+                <audio id="audioMonthlyIncome" src="Meadowbrook Ln 9.m4a"></audio>
+            </div>
+        </div>
+
+        <!-- 6.6 Start Up Investment -->
+        <div class="content-block" id="investment">
+            <div class="text">
+                <h2>6.6 Start Up Investment</h2>
+                <div class="chart-container">
+                    <canvas id="investmentChart"></canvas>
+                </div>
+                <audio id="audioInvestment" src="Meadowbrook Ln 10.m4a"></audio>
+            </div>
+        </div>
+
+        <!-- 6.7 Financing Strategy -->
+        <div class="content-block" id="financing">
+            <div class="text">
+                <h2>6.7 Financing Strategy</h2>
+                <div class="chart-container">
+                    <canvas id="financingChart"></canvas>
+                </div>
+                <audio id="audioFinancing" src="Meadowbrook Ln 11.m4a"></audio>
+            </div>
+        </div>
+
         <div class="button-container">
             <a href="Section6.html" class="button">About us</a>
         </div>
@@ -269,7 +268,175 @@
     </footer>
 
     <script>
+        const suppliesChart = new Chart(document.getElementById('suppliesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Chips', 'Motors', 'Equipment'],
+                datasets: [{
+                    label: 'Cost of Supplies',
+                    data: [50, 5, 40],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
 
+        const cogsChart = new Chart(document.getElementById('cogsChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Selling Price', 'Labor Cost', 'Supplies Cost', 'Total COGS', 'Gross Profit'],
+                datasets: [{
+                    label: 'Economics of One Unit',
+                    data: [250, 10, 95, 115, 135],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const salesChart = new Chart(document.getElementById('salesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: 'Monthly Sales Projections',
+                    data: [5, 10, 12, 20, 15, 25, 50, 100, 75, 150, 50, 30],
+                    backgroundColor: '#4BC0C0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const costsChart = new Chart(document.getElementById('costsChart'), {
+            type: 'bar',
+            data: {
+                labels: ['3-D Printing Machine', 'Internet', 'Power Supply', 'Advertising Cost', 'Salaries'],
+                datasets: [{
+                    label: 'Average Monthly Operating Costs',
+                    data: [200, 20, 50, 1000, 2400],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const monthlyIncomeChart = new Chart(document.getElementById('monthlyIncomeChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Units Sold', 'Selling Price', 'Total Sales', 'COGS', 'Gross Profit', 'Fixed Costs', 'Operating Costs', 'Profit before Taxes', 'Estimated Taxes', 'Net Profit'],
+                datasets: [{
+                    label: 'Projected Monthly Income Statement',
+                    data: [45, 210, 9435, 5175, 4260, 3570, 3570, 690, 172.5, 517.5],
+                    backgroundColor: '#4BC0C0',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const investmentChart = new Chart(document.getElementById('investmentChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Chips', 'Motors', 'Equipment', 'Advertising', 'Web Development', 'Billboard', 'Radio Ad'],
+                datasets: [{
+                    label: 'Start Up Investment',
+                    data: [100, 100, 300, 400, 150, 275, 300],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#FF6384'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const financingChart = new Chart(document.getElementById('financingChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Personal Savings', 'Relative/Friend', 'Investor', 'Grant'],
+                datasets: [{
+                    label: 'Financing Strategy',
+                    data: [325, 150, 1150, 0],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const sections = [
+            { id: 'supplies', audio: 'audioSupplies', text: 'This chart shows the cost of supplies needed to produce the product.' },
+            { id: 'cogs', audio: 'audioCogs', text: 'This chart shows the economics of one unit, including costs and gross profit.' },
+            { id: 'sales', audio: 'audioSales', text: 'This chart shows the monthly sales projections for the year.' },
+            { id: 'costs', audio: 'audioCosts', text: 'This chart shows the average monthly operating costs.' },
+            { id: 'monthlyIncome', audio: 'audioMonthlyIncome', text: 'This chart shows the projected monthly income statement.' },
+            { id: 'investment', audio: 'audioInvestment', text: 'This chart shows the start-up investment breakdown.' },
+            { id: 'financing', audio: 'audioFinancing', text: 'This chart shows the financing strategy.' }
+        ];
+
+        function onScroll() {
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                const audio = document.getElementById(section.audio);
+                const bubble = document.getElementById('speechBubble');
+                const rect = element.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                if (rect.top >= 0 && rect.bottom <= viewHeight) {
+                    bubble.textContent = section.text;
+                    bubble.classList.remove('hidden');
+                    audio.play();
+                } else {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            });
+        }
+
+        window.addEventListener('scroll', onScroll);
     </script>
 </body>
 </html>
